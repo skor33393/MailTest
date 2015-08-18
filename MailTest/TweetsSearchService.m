@@ -8,6 +8,7 @@
 
 #import "TweetsSearchService.h"
 #import "TweetsSerializer.h"
+#import "TweetSearchCache.h"
 #import "Tweet.h"
 
 static NSString * const SEARCH_ENDPOINT = @"https://api.twitter.com/1.1/search/tweets.json";
@@ -17,6 +18,7 @@ static NSString * const ACCESS_TOKEN = @"AAAAAAAAAAAAAAAAAAAAAJ5PhAAAAAAAOyF5kZs
 
 @property (strong, nonatomic) NSURLSession *session;
 @property (strong, nonatomic) TweetsSerializer *serializer;
+@property (strong, nonatomic) TweetSearchCache *cache;
 
 @end
 
@@ -28,6 +30,7 @@ static NSString * const ACCESS_TOKEN = @"AAAAAAAAAAAAAAAAAAAAAJ5PhAAAAAAAOyF5kZs
         _session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
         
         _serializer = [[TweetsSerializer alloc] init];
+        _cache = [[TweetSearchCache alloc] init];
     }
     
     return self;
@@ -44,6 +47,7 @@ static NSString * const ACCESS_TOKEN = @"AAAAAAAAAAAAAAAAAAAAAJ5PhAAAAAAAOyF5kZs
                             NSArray *tweets = [_serializer serializeTweetsWithData:data];
                             if (tweets) {
                                 successBlock(tweets);
+                                [_cache insertTweets:tweets];
                             }
                         }
                         else {
@@ -67,6 +71,7 @@ static NSString * const ACCESS_TOKEN = @"AAAAAAAAAAAAAAAAAAAAAJ5PhAAAAAAAOyF5kZs
                             NSArray *tweets = [_serializer serializeTweetsWithData:data];
                             if (tweets) {
                                 successBlock(tweets);
+                                [_cache insertTweets:tweets];
                             }
                         }
                         else {
@@ -87,6 +92,12 @@ static NSString * const ACCESS_TOKEN = @"AAAAAAAAAAAAAAAAAAAAAJ5PhAAAAAAAOyF5kZs
     [request addValue:[NSString stringWithFormat:@"Bearer %@", ACCESS_TOKEN] forHTTPHeaderField:@"Authorization"];
     
     return request;
+}
+
+#pragma mark - Cache
+
+- (void)cachedTweets {
+    [self.cache getTweets];
 }
 
 @end
