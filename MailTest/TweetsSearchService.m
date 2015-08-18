@@ -33,7 +33,9 @@ static NSString * const ACCESS_TOKEN = @"AAAAAAAAAAAAAAAAAAAAAJ5PhAAAAAAAOyF5kZs
     return self;
 }
 
-- (void)searchTweetsByHashtag:(NSString *)hashtag onSuccess:(void (^)(NSArray *))successBlock onFailure:(void (^)(NSError *))failureBlock {
+#pragma mark - Search
+
+- (void)searchLatestTweetsByHashtag:(NSString *)hashtag onSuccess:(void (^)(NSArray *))successBlock onFailure:(void (^)(NSError *))failureBlock {
     NSURLRequest *searchRequest = [self requestForSearchTweetsByHashtag:hashtag];
     
     [[self.session dataTaskWithRequest:searchRequest
@@ -50,10 +52,33 @@ static NSString * const ACCESS_TOKEN = @"AAAAAAAAAAAAAAAAAAAAAJ5PhAAAAAAAOyF5kZs
                     }] resume];
 }
 
+- (void)searchTweetsByHashtag:(NSString *)hashtag sinceTweet:(Tweet *)tweet onSuccess:(void (^)(NSArray *))successBlock onFailure:(void (^)(NSError *))failureBlock {
+    NSString *query = [[NSString stringWithFormat:@"q=#%@&since_id=%@&result_type=recent", hashtag, tweet.tweetId] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *parametrizedUrl = [SEARCH_ENDPOINT stringByAppendingString:[NSString stringWithFormat:@"?%@", query]];
+    NSURL *url = [NSURL URLWithString:parametrizedUrl];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    request.HTTPMethod = @"GET";
+    [request addValue:[NSString stringWithFormat:@"Bearer %@", ACCESS_TOKEN] forHTTPHeaderField:@"Authorization"];
+    
+    [[self.session dataTaskWithRequest:request
+                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                        if (!error) {
+                            NSArray *tweets = [_serializer serializeTweetsWithData:data];
+                            if (tweets) {
+                                successBlock(tweets);
+                            }
+                        }
+                        else {
+                            failureBlock(error);
+                        }
+                    }] resume];
+}
+
 #pragma mark - Search requests
 
 - (NSURLRequest *)requestForSearchTweetsByHashtag:(NSString *)hashtag {
-    NSString *query = [[NSString stringWithFormat:@"q=#%@", hashtag] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *query = [[NSString stringWithFormat:@"q=#%@&result_type=recent", hashtag] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString *parametrizedUrl = [SEARCH_ENDPOINT stringByAppendingString:[NSString stringWithFormat:@"?%@", query]];
     NSURL *url = [NSURL URLWithString:parametrizedUrl];
     

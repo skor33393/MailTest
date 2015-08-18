@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Tweet.h"
 
 @interface TweetsSearchService : NSObject
 
-- (void)searchTweetsByHashtag:(NSString *)hashtag onSuccess:(void (^) (NSArray *tweets))successBlock onFailure:(void (^) (NSError *error))failureBlock;
+- (void)searchLatestTweetsByHashtag:(NSString *)hashtag onSuccess:(void (^) (NSArray *tweets))successBlock onFailure:(void (^) (NSError *error))failureBlock;
+- (void)searchTweetsByHashtag:(NSString *)hashtag sinceTweet:(Tweet *)tweet onSuccess:(void (^) (NSArray *tweets))successBlock onFailure:(void (^) (NSError *error))failureBlock;
 
 @end

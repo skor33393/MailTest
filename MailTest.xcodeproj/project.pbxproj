@@ -17,6 +17,7 @@
 		A32859141B80E6FF00751945 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = A32859131B80E6FF00751945 /* Tweet.m */; };
 		A328591B1B81072E00751945 /* TweetsSearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = A328591A1B81072E00751945 /* TweetsSearchService.m */; };
 		A328591E1B810A3700751945 /* TweetsSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A328591D1B810A3700751945 /* TweetsSerializer.m */; };
+		A32859231B83876C00751945 /* TweetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A32859221B83876C00751945 /* TweetTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		A328591A1B81072E00751945 /* TweetsSearchService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetsSearchService.m; sourceTree = "<group>"; };
 		A328591C1B810A3700751945 /* TweetsSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetsSerializer.h; sourceTree = "<group>"; };
 		A328591D1B810A3700751945 /* TweetsSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetsSerializer.m; sourceTree = "<group>"; };
+		A32859211B83876C00751945 /* TweetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetTableViewCell.h; sourceTree = "<group>"; };
+		A32859221B83876C00751945 /* TweetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,7 @@
 			children = (
 				A32858F31B80E66500751945 /* TweetsViewController.h */,
 				A32858F41B80E66500751945 /* TweetsViewController.m */,
+				A32859241B83877700751945 /* TweetTableViewCell */,
 			);
 			name = TweetsViewController;
 			sourceTree = "<group>";
@@ -156,6 +160,15 @@
 				A328591A1B81072E00751945 /* TweetsSearchService.m */,
 			);
 			name = TweetsSearchService;
+			sourceTree = "<group>";
+		};
+		A32859241B83877700751945 /* TweetTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A32859211B83876C00751945 /* TweetTableViewCell.h */,
+				A32859221B83876C00751945 /* TweetTableViewCell.m */,
+			);
+			name = TweetTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +275,7 @@
 				A328591E1B810A3700751945 /* TweetsSerializer.m in Sources */,
 				A32858F21B80E66500751945 /* AppDelegate.m in Sources */,
 				A328591B1B81072E00751945 /* TweetsSearchService.m in Sources */,
+				A32859231B83876C00751945 /* TweetTableViewCell.m in Sources */,
 				A32858EF1B80E66500751945 /* main.m in Sources */,
 				A32859141B80E6FF00751945 /* Tweet.m in Sources */,
 			);

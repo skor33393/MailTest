@@ -25,12 +25,14 @@
         if (statuses) {
             @autoreleasepool {
                 for (NSDictionary *tweet in statuses) {
+                    NSString *tweetId = tweet[@"id_str"];
+                    
                     NSDictionary *author = tweet[@"user"];
                     NSString *authorName = author[@"name"];
                     
                     NSString *text = tweet[@"text"];
                     
-                    Tweet *currentTweet = [[Tweet alloc] initWithAuthorName:authorName andWithText:text];
+                    Tweet *currentTweet = [[Tweet alloc] initWithTweetId:tweetId authorName:authorName text:text];
                     
                     [resultArray addObject:currentTweet];
                 }
