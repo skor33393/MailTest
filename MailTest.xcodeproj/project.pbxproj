@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		A32858EF1B80E66500751945 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A32858EE1B80E66500751945 /* main.m */; };
 		A32858F21B80E66500751945 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A32858F11B80E66500751945 /* AppDelegate.m */; };
-		A32858F51B80E66500751945 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32858F41B80E66500751945 /* ViewController.m */; };
+		A32858F51B80E66500751945 /* TweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32858F41B80E66500751945 /* TweetsViewController.m */; };
 		A32858F81B80E66500751945 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32858F61B80E66500751945 /* Main.storyboard */; };
 		A32858FA1B80E66500751945 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A32858F91B80E66500751945 /* Images.xcassets */; };
 		A32858FD1B80E66500751945 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32858FB1B80E66500751945 /* LaunchScreen.xib */; };
 		A32859091B80E66500751945 /* MailTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A32859081B80E66500751945 /* MailTestTests.m */; };
+		A32859141B80E6FF00751945 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = A32859131B80E6FF00751945 /* Tweet.m */; };
+		A328591B1B81072E00751945 /* TweetsSearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = A328591A1B81072E00751945 /* TweetsSearchService.m */; };
+		A328591E1B810A3700751945 /* TweetsSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A328591D1B810A3700751945 /* TweetsSerializer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +35,20 @@
 		A32858EE1B80E66500751945 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A32858F01B80E66500751945 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A32858F11B80E66500751945 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A32858F31B80E66500751945 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A32858F41B80E66500751945 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A32858F31B80E66500751945 /* TweetsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TweetsViewController.h; sourceTree = "<group>"; };
+		A32858F41B80E66500751945 /* TweetsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TweetsViewController.m; sourceTree = "<group>"; };
 		A32858F71B80E66500751945 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A32858F91B80E66500751945 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A32858FC1B80E66500751945 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A32859021B80E66500751945 /* MailTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MailTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32859071B80E66500751945 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A32859081B80E66500751945 /* MailTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MailTestTests.m; sourceTree = "<group>"; };
+		A32859121B80E6FF00751945 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tweet.h; path = Model/Tweet.h; sourceTree = "<group>"; };
+		A32859131B80E6FF00751945 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tweet.m; path = Model/Tweet.m; sourceTree = "<group>"; };
+		A32859191B81072E00751945 /* TweetsSearchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetsSearchService.h; sourceTree = "<group>"; };
+		A328591A1B81072E00751945 /* TweetsSearchService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetsSearchService.m; sourceTree = "<group>"; };
+		A328591C1B810A3700751945 /* TweetsSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetsSerializer.h; sourceTree = "<group>"; };
+		A328591D1B810A3700751945 /* TweetsSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetsSerializer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +92,12 @@
 			children = (
 				A32858F01B80E66500751945 /* AppDelegate.h */,
 				A32858F11B80E66500751945 /* AppDelegate.m */,
-				A32858F31B80E66500751945 /* ViewController.h */,
-				A32858F41B80E66500751945 /* ViewController.m */,
+				A328591F1B810B7D00751945 /* TweetsViewController */,
+				A32859201B82424800751945 /* TweetsSearchService */,
 				A32858F61B80E66500751945 /* Main.storyboard */,
 				A32858F91B80E66500751945 /* Images.xcassets */,
 				A32858FB1B80E66500751945 /* LaunchScreen.xib */,
+				A32859151B80E70300751945 /* Model */,
 				A32858EC1B80E66500751945 /* Supporting Files */,
 			);
 			path = MailTest;
@@ -117,6 +127,35 @@
 				A32859071B80E66500751945 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A32859151B80E70300751945 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A32859121B80E6FF00751945 /* Tweet.h */,
+				A32859131B80E6FF00751945 /* Tweet.m */,
+				A328591C1B810A3700751945 /* TweetsSerializer.h */,
+				A328591D1B810A3700751945 /* TweetsSerializer.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A328591F1B810B7D00751945 /* TweetsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A32858F31B80E66500751945 /* TweetsViewController.h */,
+				A32858F41B80E66500751945 /* TweetsViewController.m */,
+			);
+			name = TweetsViewController;
+			sourceTree = "<group>";
+		};
+		A32859201B82424800751945 /* TweetsSearchService */ = {
+			isa = PBXGroup;
+			children = (
+				A32859191B81072E00751945 /* TweetsSearchService.h */,
+				A328591A1B81072E00751945 /* TweetsSearchService.m */,
+			);
+			name = TweetsSearchService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +258,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A32858F51B80E66500751945 /* ViewController.m in Sources */,
+				A32858F51B80E66500751945 /* TweetsViewController.m in Sources */,
+				A328591E1B810A3700751945 /* TweetsSerializer.m in Sources */,
 				A32858F21B80E66500751945 /* AppDelegate.m in Sources */,
+				A328591B1B81072E00751945 /* TweetsSearchService.m in Sources */,
 				A32858EF1B80E66500751945 /* main.m in Sources */,
+				A32859141B80E6FF00751945 /* Tweet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +458,7 @@
 				A328590E1B80E66500751945 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A328590F1B80E66500751945 /* Build configuration list for PBXNativeTarget "MailTestTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +467,7 @@
 				A32859111B80E66500751945 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
