@@ -96,8 +96,10 @@ static NSString * const ACCESS_TOKEN = @"AAAAAAAAAAAAAAAAAAAAAJ5PhAAAAAAAOyF5kZs
 
 #pragma mark - Cache
 
-- (void)cachedTweets {
-    [self.cache getTweets];
+- (void)cachedTweetsWithCompletionBlock:(void (^)(NSArray *))completionBlock {
+    [self.cache getTweetsWithCompletionBlock:^(NSArray *tweets) {
+        completionBlock(tweets);
+    }];
 }
 
 @end

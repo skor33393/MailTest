@@ -14,6 +14,6 @@
 - (void)searchLatestTweetsByHashtag:(NSString *)hashtag onSuccess:(void (^) (NSArray *tweets))successBlock onFailure:(void (^) (NSError *error))failureBlock;
 - (void)searchTweetsByHashtag:(NSString *)hashtag sinceTweet:(Tweet *)tweet onSuccess:(void (^) (NSArray *tweets))successBlock onFailure:(void (^) (NSError *error))failureBlock;
 
-- (void)cachedTweets;
+- (void)cachedTweetsWithCompletionBlock:(void (^) (NSArray *tweets))completionBlock;
 
 @end

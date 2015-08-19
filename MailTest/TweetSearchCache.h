@@ -11,6 +11,6 @@
 @interface TweetSearchCache : NSObject
 
 - (void)insertTweets:(NSArray *)tweets;
-- (void)getTweets;
+- (void)getTweetsWithCompletionBlock:(void (^) (NSArray *tweets))completionBlock;
 
 @end
