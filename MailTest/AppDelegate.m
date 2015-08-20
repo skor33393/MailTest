@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SettingsViewController.h"
 
 @interface AppDelegate ()
 

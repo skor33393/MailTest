@@ -41,9 +41,11 @@ static NSString * const ACCESS_TOKEN = @"AAAAAAAAAAAAAAAAAAAAAJ5PhAAAAAAAOyF5kZs
 - (void)searchTweetsByHashtag:(NSString *)hashtag sinceTweet:(Tweet *)tweet onSuccess:(void (^)(NSArray *))successBlock onFailure:(void (^)(NSError *))failureBlock {
     NSURLRequest *searchRequest = [self requestForSearchTweetsByHashtag:hashtag sinceId:tweet.tweetId];
     
-    __weak typeof(self) wSelf;
+    __weak typeof(self) wSelf = self;
     [[self.session dataTaskWithRequest:searchRequest
                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                        NSString *rrr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                        NSLog(@"%@", rrr);
                         typeof(self) sSelf = wSelf;
                         if (!error) {
                             NSArray *tweets = [sSelf.serializer serializeTweetsWithData:data];

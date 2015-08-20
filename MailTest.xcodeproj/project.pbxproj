@@ -24,6 +24,8 @@
 		A3E73F1C1B85176E00B28588 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E73F1B1B85176E00B28588 /* ImageCache.m */; };
 		A3E73F201B85DC7400B28588 /* ImageDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E73F1F1B85DC7400B28588 /* ImageDownloadManager.m */; };
 		A3E73F241B85DEB300B28588 /* UIImageView+ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E73F231B85DEB300B28588 /* UIImageView+ImageCache.m */; };
+		A3E73F281B86174F00B28588 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E73F271B86174F00B28588 /* SettingsViewController.m */; };
+		A3E73F2C1B8618EF00B28588 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E73F2B1B8618EF00B28588 /* Settings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,10 @@
 		A3E73F1F1B85DC7400B28588 /* ImageDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloadManager.m; sourceTree = "<group>"; };
 		A3E73F221B85DEB300B28588 /* UIImageView+ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ImageCache.h"; sourceTree = "<group>"; };
 		A3E73F231B85DEB300B28588 /* UIImageView+ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ImageCache.m"; sourceTree = "<group>"; };
+		A3E73F261B86174F00B28588 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		A3E73F271B86174F00B28588 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		A3E73F2A1B8618EF00B28588 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		A3E73F2B1B8618EF00B28588 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		B95B86FFA038033A540819B2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EB8F8A67F5BE010EC6831ECB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +132,8 @@
 			children = (
 				A32858F01B80E66500751945 /* AppDelegate.h */,
 				A32858F11B80E66500751945 /* AppDelegate.m */,
+				A3E73F291B86175800B28588 /* SettingsViewController */,
+				A3E73F2D1B8618FA00B28588 /* Settings */,
 				A328591F1B810B7D00751945 /* TweetsViewController */,
 				A32859201B82424800751945 /* TweetsSearchService */,
 				A32859151B80E70300751945 /* Model */,
@@ -242,6 +250,24 @@
 				A3E73F1D1B85DC4F00B28588 /* ImageCache */,
 			);
 			name = "UIImageView+ImageCache";
+			sourceTree = "<group>";
+		};
+		A3E73F291B86175800B28588 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A3E73F261B86174F00B28588 /* SettingsViewController.h */,
+				A3E73F271B86174F00B28588 /* SettingsViewController.m */,
+			);
+			name = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		A3E73F2D1B8618FA00B28588 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A3E73F2A1B8618EF00B28588 /* Settings.h */,
+				A3E73F2B1B8618EF00B28588 /* Settings.m */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		EB00C088B286D49CB72903DE /* Frameworks */ = {
@@ -393,12 +419,14 @@
 				A3E73F1C1B85176E00B28588 /* ImageCache.m in Sources */,
 				A3E73F181B84A87600B28588 /* User.m in Sources */,
 				A328591E1B810A3700751945 /* TweetsSerializer.m in Sources */,
+				A3E73F2C1B8618EF00B28588 /* Settings.m in Sources */,
 				A32858F21B80E66500751945 /* AppDelegate.m in Sources */,
 				A328591B1B81072E00751945 /* TweetsSearchService.m in Sources */,
 				A3E73F201B85DC7400B28588 /* ImageDownloadManager.m in Sources */,
 				A32859231B83876C00751945 /* TweetTableViewCell.m in Sources */,
 				A32858EF1B80E66500751945 /* main.m in Sources */,
 				A32859141B80E6FF00751945 /* Tweet.m in Sources */,
+				A3E73F281B86174F00B28588 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
