@@ -27,13 +27,13 @@ static char kOperationQueueKey;
     return opQueue;
 }
 
-- (void)setImageWithUrl:(NSString *)url {
+- (void)setImageWithUrl:(NSString *)url placeholderImage:(UIImage *)placeholder {
     objc_setAssociatedObject(self, &kAssociatedObjectKey, url, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     __weak typeof(self)wself = self;
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        wself.image = nil;
+        wself.image = placeholder;
     });
     
     [[self operationQueue] cancelAllOperations];

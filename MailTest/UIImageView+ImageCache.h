@@ -10,6 +10,6 @@
 
 @interface UIImageView (ImageCache)
 
-- (void)setImageWithUrl:(NSString *)url;
+- (void)setImageWithUrl:(NSString *)url placeholderImage:(UIImage *)placeholder;
 
 @end
