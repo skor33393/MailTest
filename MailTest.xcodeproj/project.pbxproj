@@ -21,6 +21,9 @@
 		A32859231B83876C00751945 /* TweetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A32859221B83876C00751945 /* TweetTableViewCell.m */; };
 		A328592B1B83A02B00751945 /* TweetSearchCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A328592A1B83A02B00751945 /* TweetSearchCache.m */; };
 		A3E73F181B84A87600B28588 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E73F171B84A87600B28588 /* User.m */; };
+		A3E73F1C1B85176E00B28588 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E73F1B1B85176E00B28588 /* ImageCache.m */; };
+		A3E73F201B85DC7400B28588 /* ImageDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E73F1F1B85DC7400B28588 /* ImageDownloadManager.m */; };
+		A3E73F241B85DEB300B28588 /* UIImageView+ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E73F231B85DEB300B28588 /* UIImageView+ImageCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,12 @@
 		A328592A1B83A02B00751945 /* TweetSearchCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetSearchCache.m; sourceTree = "<group>"; };
 		A3E73F161B84A87600B28588 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		A3E73F171B84A87600B28588 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		A3E73F1A1B85176E00B28588 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
+		A3E73F1B1B85176E00B28588 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
+		A3E73F1E1B85DC7400B28588 /* ImageDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloadManager.h; sourceTree = "<group>"; };
+		A3E73F1F1B85DC7400B28588 /* ImageDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloadManager.m; sourceTree = "<group>"; };
+		A3E73F221B85DEB300B28588 /* UIImageView+ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ImageCache.h"; sourceTree = "<group>"; };
+		A3E73F231B85DEB300B28588 /* UIImageView+ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ImageCache.m"; sourceTree = "<group>"; };
 		B95B86FFA038033A540819B2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EB8F8A67F5BE010EC6831ECB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,11 +128,13 @@
 				A32858F11B80E66500751945 /* AppDelegate.m */,
 				A328591F1B810B7D00751945 /* TweetsViewController */,
 				A32859201B82424800751945 /* TweetsSearchService */,
-				A32859291B83A02B00751945 /* TweetSearchCache.h */,
-				A328592A1B83A02B00751945 /* TweetSearchCache.m */,
-				A32858F61B80E66500751945 /* Main.storyboard */,
+				A3E73F221B85DEB300B28588 /* UIImageView+ImageCache.h */,
+				A3E73F231B85DEB300B28588 /* UIImageView+ImageCache.m */,
+				A3E73F1D1B85DC4F00B28588 /* ImageCache */,
+				A3E73F211B85DC7B00B28588 /* ImageDownloadManager */,
 				A32858F91B80E66500751945 /* Images.xcassets */,
 				A32858FB1B80E66500751945 /* LaunchScreen.xib */,
+				A32858F61B80E66500751945 /* Main.storyboard */,
 				A32859151B80E70300751945 /* Model */,
 				A32858EC1B80E66500751945 /* Supporting Files */,
 			);
@@ -184,6 +195,7 @@
 			children = (
 				A32859191B81072E00751945 /* TweetsSearchService.h */,
 				A328591A1B81072E00751945 /* TweetsSearchService.m */,
+				A3E73F191B84CFA600B28588 /* TweetSearchCache */,
 			);
 			name = TweetsSearchService;
 			sourceTree = "<group>";
@@ -195,6 +207,33 @@
 				A32859221B83876C00751945 /* TweetTableViewCell.m */,
 			);
 			name = TweetTableViewCell;
+			sourceTree = "<group>";
+		};
+		A3E73F191B84CFA600B28588 /* TweetSearchCache */ = {
+			isa = PBXGroup;
+			children = (
+				A32859291B83A02B00751945 /* TweetSearchCache.h */,
+				A328592A1B83A02B00751945 /* TweetSearchCache.m */,
+			);
+			name = TweetSearchCache;
+			sourceTree = "<group>";
+		};
+		A3E73F1D1B85DC4F00B28588 /* ImageCache */ = {
+			isa = PBXGroup;
+			children = (
+				A3E73F1A1B85176E00B28588 /* ImageCache.h */,
+				A3E73F1B1B85176E00B28588 /* ImageCache.m */,
+			);
+			name = ImageCache;
+			sourceTree = "<group>";
+		};
+		A3E73F211B85DC7B00B28588 /* ImageDownloadManager */ = {
+			isa = PBXGroup;
+			children = (
+				A3E73F1E1B85DC7400B28588 /* ImageDownloadManager.h */,
+				A3E73F1F1B85DC7400B28588 /* ImageDownloadManager.m */,
+			);
+			name = ImageDownloadManager;
 			sourceTree = "<group>";
 		};
 		EB00C088B286D49CB72903DE /* Frameworks */ = {
@@ -341,11 +380,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A328592B1B83A02B00751945 /* TweetSearchCache.m in Sources */,
+				A3E73F241B85DEB300B28588 /* UIImageView+ImageCache.m in Sources */,
 				A32858F51B80E66500751945 /* TweetsViewController.m in Sources */,
+				A3E73F1C1B85176E00B28588 /* ImageCache.m in Sources */,
 				A3E73F181B84A87600B28588 /* User.m in Sources */,
 				A328591E1B810A3700751945 /* TweetsSerializer.m in Sources */,
 				A32858F21B80E66500751945 /* AppDelegate.m in Sources */,
 				A328591B1B81072E00751945 /* TweetsSearchService.m in Sources */,
+				A3E73F201B85DC7400B28588 /* ImageDownloadManager.m in Sources */,
 				A32859231B83876C00751945 /* TweetTableViewCell.m in Sources */,
 				A32858EF1B80E66500751945 /* main.m in Sources */,
 				A32859141B80E6FF00751945 /* Tweet.m in Sources */,
