@@ -61,7 +61,7 @@ static NSString * const ACCESS_TOKEN = @"AAAAAAAAAAAAAAAAAAAAAJ5PhAAAAAAAOyF5kZs
 - (NSURLRequest *)requestForSearchTweetsByHashtag:(NSString *)hashtag sinceId:(NSNumber *)sinceId {
     NSString *query;
     if ([sinceId integerValue] != 0) {
-        query = [[NSString stringWithFormat:@"q=#%@&since_id=%@&result_type=recent", sinceId, hashtag] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        query = [[NSString stringWithFormat:@"q=#%@&since_id=%@&result_type=recent", hashtag, sinceId] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     }
     else {
         query = [[NSString stringWithFormat:@"q=#%@&result_type=recent", hashtag] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -79,8 +79,8 @@ static NSString * const ACCESS_TOKEN = @"AAAAAAAAAAAAAAAAAAAAAJ5PhAAAAAAAOyF5kZs
 
 #pragma mark - Cache
 
-- (void)cachedTweetsWithCompletionBlock:(void (^)(NSArray *))completionBlock {
-    [self.cache getTweetsWithCompletionBlock:^(NSArray *tweets) {
+- (void)cachedTweetsWithMaxCount:(NSUInteger)count withCompletionBlock:(void (^)(NSArray *))completionBlock {
+    [self.cache getTweetsWithMaximumCount:count withCompletionBlock:^(NSArray *tweets) {
         completionBlock(tweets);
     }];
 }

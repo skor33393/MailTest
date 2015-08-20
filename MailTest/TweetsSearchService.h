@@ -13,6 +13,6 @@
 
 - (void)searchTweetsByHashtag:(NSString *)hashtag sinceTweet:(Tweet *)tweet onSuccess:(void (^) (NSArray *tweets))successBlock onFailure:(void (^) (NSError *error))failureBlock;
 
-- (void)cachedTweetsWithCompletionBlock:(void (^) (NSArray *tweets))completionBlock;
+- (void)cachedTweetsWithMaxCount:(NSUInteger)count withCompletionBlock:(void (^) (NSArray *tweets))completionBlock;
 
 @end

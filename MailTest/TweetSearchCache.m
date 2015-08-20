@@ -47,9 +47,10 @@ static NSString * const DATABASE_NAME = @"mailtest.sqlite";
     }];
 }
 
-- (void)getTweetsWithCompletionBlock:(void (^) (NSArray *))completionBlock {
+- (void)getTweetsWithMaximumCount:(NSUInteger)count withCompletionBlock:(void (^)(NSArray *))completionBlock {
     [self.dbQueue inDatabase:^(FMDatabase *db) {
-        FMResultSet *tweets = [db executeQuery:@"SELECT *, * FROM tweet, user WHERE tweet.tweetUserId = user.userId ORDER BY tweet.tweetId desc"];
+        NSString *query = [NSString stringWithFormat:@"SELECT *, * FROM tweet, user WHERE tweet.tweetUserId = user.userId ORDER BY tweet.tweetId desc LIMIT %lu", (unsigned long)count];
+        FMResultSet *tweets = [db executeQuery:query];
         NSMutableArray *resultTweets = [[NSMutableArray alloc] init];
         
         while ([tweets next]) {
