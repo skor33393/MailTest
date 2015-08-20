@@ -10,16 +10,16 @@
         <scene sceneID="6De-ym-tmN">
             <objects>
                 <tableViewController id="uUJ-6X-6d6" customClass="TweetsViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="22" sectionFooterHeight="22" id="Obq-WF-JpQ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="Obq-WF-JpQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" id="SeD-Zx-Oos" customClass="TweetTableViewCell">
-                                <rect key="frame" x="0.0" y="86" width="600" height="73"/>
+                                <rect key="frame" x="0.0" y="86" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SeD-Zx-Oos" id="Tyb-Wi-FID">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="72"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aJd-GO-x5r">
@@ -29,25 +29,35 @@
                                                 <constraint firstAttribute="height" constant="40" id="zhh-r8-nPN"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIA-JX-e76">
+                                            <rect key="frame" x="61" y="8" width="40" height="18"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63h-pu-WYf">
-                                            <rect key="frame" x="61" y="8" width="38" height="18"/>
+                                            <rect key="frame" x="61" y="29" width="38" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="63h-pu-WYf" firstAttribute="top" secondItem="Tyb-Wi-FID" secondAttribute="topMargin" id="0hv-NA-1Xl"/>
-                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="63h-pu-WYf" secondAttribute="bottom" id="KO4-8Y-0uK"/>
-                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="63h-pu-WYf" secondAttribute="trailing" id="Xy4-lm-pZJ"/>
+                                        <constraint firstItem="TIA-JX-e76" firstAttribute="top" secondItem="aJd-GO-x5r" secondAttribute="top" id="E9t-TG-ljw"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="TIA-JX-e76" secondAttribute="trailing" id="Lo0-ly-qOo"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="63h-pu-WYf" secondAttribute="bottom" id="MGr-k8-4VA"/>
                                         <constraint firstItem="63h-pu-WYf" firstAttribute="leading" secondItem="aJd-GO-x5r" secondAttribute="trailing" constant="8" id="b6t-kn-0Bt"/>
+                                        <constraint firstItem="63h-pu-WYf" firstAttribute="top" secondItem="TIA-JX-e76" secondAttribute="bottom" constant="3" id="bFK-16-RoB"/>
                                         <constraint firstItem="aJd-GO-x5r" firstAttribute="top" secondItem="Tyb-Wi-FID" secondAttribute="topMargin" id="dxx-7P-qlk"/>
+                                        <constraint firstItem="TIA-JX-e76" firstAttribute="leading" secondItem="aJd-GO-x5r" secondAttribute="trailing" constant="8" id="i9r-Jm-Ivj"/>
                                         <constraint firstItem="aJd-GO-x5r" firstAttribute="leading" secondItem="Tyb-Wi-FID" secondAttribute="leadingMargin" constant="5" id="kri-N4-nR7"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="63h-pu-WYf" secondAttribute="trailing" id="rwe-7k-IE5"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="tweetText" destination="63h-pu-WYf" id="GKa-Rk-H2d"/>
                                     <outlet property="userAvatar" destination="aJd-GO-x5r" id="Sbd-Vp-oC4"/>
+                                    <outlet property="userName" destination="TIA-JX-e76" id="tVe-Jh-8L0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
