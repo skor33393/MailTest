@@ -14,6 +14,6 @@
 
 + (instancetype)sharedManager;
 
-- (void)getImageByUrl:(NSString *)url withCompletionBlock:(void (^) (UIImage *image))completionBlock;
+- (NSOperation *)getImageByUrl:(NSString *)url withCompletionBlock:(void (^) (UIImage *image))completionBlock;
 
 @end

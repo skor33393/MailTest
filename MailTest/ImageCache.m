@@ -40,8 +40,6 @@ static NSString * const IMAGE_DATABASE_PATH = @"image.sqlite";
         NSString *docsPath = [paths objectAtIndex:0];
         NSString *path = [docsPath stringByAppendingPathComponent:IMAGE_DATABASE_PATH];
         
-        NSLog(@"%@", path);
-        
         _dbQueue = [FMDatabaseQueue databaseQueueWithPath:path];
         [_dbQueue inDatabase:^(FMDatabase *db) {
             [db executeUpdate:@"CREATE TABLE IF NOT EXISTS image (imageUrl text unique, imageData blob)"];
@@ -53,7 +51,9 @@ static NSString * const IMAGE_DATABASE_PATH = @"image.sqlite";
 
 - (void)saveImage:(UIImage *)image withUrl:(NSString *)url onSuccess:(void (^)())successBlock onFailure:(void (^)(NSError *))error {
     if (![self.inMemoryCache objectForKey:url]) {
-        [self.inMemoryCache setObject:image forKey:url];
+        @synchronized(self) {
+            [self.inMemoryCache setObject:image forKey:url];
+        }
         [self.dbQueue inDatabase:^(FMDatabase *db) {
             NSData *imageData = UIImagePNGRepresentation(image);
             [db executeUpdate:@"INSERT OR REPLACE INTO image VALUES (?, ?)", url, imageData];
@@ -68,7 +68,7 @@ static NSString * const IMAGE_DATABASE_PATH = @"image.sqlite";
     UIImage *inMemoryImage = [self.inMemoryCache objectForKey:url];
     if (!inMemoryImage) {
         [self.dbQueue inDatabase:^(FMDatabase *db) {
-            NSString *imageQuery = [NSString stringWithFormat:@"select imageData from image where imageUrl = \'%@\'", url];
+            NSString *imageQuery = [NSString stringWithFormat:@"SELECT imageData FROM image WHERE imageUrl = \'%@\'", url];
             FMResultSet *imageSet = [db executeQuery:imageQuery];
             NSData *imageData = nil;
             while ([imageSet next]) {
@@ -80,12 +80,10 @@ static NSString * const IMAGE_DATABASE_PATH = @"image.sqlite";
                 [self.inMemoryCache setObject:imageFromData forKey:url];
             }
             
-            NSLog(@"IMAGE DB CACHE");
             completionBlock(imageFromData);
         }];
     }
     else {
-        NSLog(@"IMAGE IN MEMORY CACHE");
         completionBlock(inMemoryImage);
     }
 }

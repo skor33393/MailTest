@@ -10,7 +10,7 @@
 
 @interface User ()
 
-@property (nonatomic, readwrite, copy) NSString *userId;
+@property (nonatomic, readwrite, copy) NSNumber *userId;
 @property (nonatomic, readwrite, copy) NSString *userName;
 @property (nonatomic, readwrite, copy) NSString *userProfilePictureUrl;
 
@@ -18,7 +18,7 @@
 
 @implementation User
 
-- (instancetype)initWithId:(NSString *)userId name:(NSString *)userName profilePictureUrl:(NSString *)profilePictureUrl {
+- (instancetype)initWithId:(NSNumber *)userId name:(NSString *)userName profilePictureUrl:(NSString *)profilePictureUrl {
     if (self = [super init]) {
         _userId = userId;
         _userName = userName;

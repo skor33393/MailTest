@@ -27,13 +27,13 @@
             @autoreleasepool {
                 for (NSDictionary *tweet in statuses) {
                     NSDictionary *userDictionary = tweet[@"user"];
-                    NSString *userId = userDictionary[@"id_str"];
+                    NSNumber *userId = userDictionary[@"id"];
                     NSString *userName = userDictionary[@"screen_name"];
                     NSString *profilePictureUrl = userDictionary[@"profile_image_url"];
                     
                     User *user = [[User alloc] initWithId:userId name:userName profilePictureUrl:profilePictureUrl];
                     
-                    NSString *tweetId = tweet[@"id_str"];
+                    NSNumber *tweetId = tweet[@"id"];
                     NSString *text = tweet[@"text"];
                     
                     Tweet *currentTweet = [[Tweet alloc] initWithTweetId:tweetId text:text user:user];

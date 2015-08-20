@@ -10,10 +10,10 @@
 
 @interface User : NSObject
 
-@property (nonatomic, readonly, copy) NSString *userId;
+@property (nonatomic, readonly, copy) NSNumber *userId;
 @property (nonatomic, readonly, copy) NSString *userName;
 @property (nonatomic, readonly, copy) NSString *userProfilePictureUrl;
 
-- (instancetype)initWithId:(NSString *)userId name:(NSString *)userName profilePictureUrl:(NSString *)profilePictureUrl;
+- (instancetype)initWithId:(NSNumber *)userId name:(NSString *)userName profilePictureUrl:(NSString *)profilePictureUrl;
 
 @end

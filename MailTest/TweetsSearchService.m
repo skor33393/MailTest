@@ -38,8 +38,8 @@ static NSString * const ACCESS_TOKEN = @"AAAAAAAAAAAAAAAAAAAAAJ5PhAAAAAAAOyF5kZs
 
 #pragma mark - Search
 
-- (void)searchLatestTweetsByHashtag:(NSString *)hashtag onSuccess:(void (^)(NSArray *))successBlock onFailure:(void (^)(NSError *))failureBlock {
-    NSURLRequest *searchRequest = [self requestForSearchTweetsByHashtag:hashtag];
+- (void)searchTweetsByHashtag:(NSString *)hashtag sinceTweet:(Tweet *)tweet onSuccess:(void (^)(NSArray *))successBlock onFailure:(void (^)(NSError *))failureBlock {
+    NSURLRequest *searchRequest = [self requestForSearchTweetsByHashtag:hashtag sinceId:tweet.tweetId];
     
     [[self.session dataTaskWithRequest:searchRequest
                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -56,34 +56,17 @@ static NSString * const ACCESS_TOKEN = @"AAAAAAAAAAAAAAAAAAAAAJ5PhAAAAAAAOyF5kZs
                     }] resume];
 }
 
-- (void)searchTweetsByHashtag:(NSString *)hashtag sinceTweet:(Tweet *)tweet onSuccess:(void (^)(NSArray *))successBlock onFailure:(void (^)(NSError *))failureBlock {
-    NSString *query = [[NSString stringWithFormat:@"q=#%@&since_id=%@&result_type=recent", hashtag, tweet.tweetId] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *parametrizedUrl = [SEARCH_ENDPOINT stringByAppendingString:[NSString stringWithFormat:@"?%@", query]];
-    NSURL *url = [NSURL URLWithString:parametrizedUrl];
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    request.HTTPMethod = @"GET";
-    [request addValue:[NSString stringWithFormat:@"Bearer %@", ACCESS_TOKEN] forHTTPHeaderField:@"Authorization"];
-    
-    [[self.session dataTaskWithRequest:request
-                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                        if (!error) {
-                            NSArray *tweets = [_serializer serializeTweetsWithData:data];
-                            if (tweets) {
-                                successBlock(tweets);
-                                [_cache insertTweets:tweets];
-                            }
-                        }
-                        else {
-                            failureBlock(error);
-                        }
-                    }] resume];
-}
-
 #pragma mark - Search requests
 
-- (NSURLRequest *)requestForSearchTweetsByHashtag:(NSString *)hashtag {
-    NSString *query = [[NSString stringWithFormat:@"q=#%@&result_type=recent", hashtag] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+- (NSURLRequest *)requestForSearchTweetsByHashtag:(NSString *)hashtag sinceId:(NSNumber *)sinceId {
+    NSString *query;
+    if ([sinceId integerValue] != 0) {
+        query = [[NSString stringWithFormat:@"q=#%@&since_id=%@&result_type=recent", sinceId, hashtag] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    }
+    else {
+        query = [[NSString stringWithFormat:@"q=#%@&result_type=recent", hashtag] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    }
+    
     NSString *parametrizedUrl = [SEARCH_ENDPOINT stringByAppendingString:[NSString stringWithFormat:@"?%@", query]];
     NSURL *url = [NSURL URLWithString:parametrizedUrl];
     
