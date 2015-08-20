@@ -66,8 +66,11 @@ static NSString * const IMAGE_DATABASE_PATH = @"image.sqlite";
 
 - (void)getImageByUrl:(NSString *)url withCompletionBlock:(void (^)(UIImage *))completionBlock {
     UIImage *inMemoryImage = [self.inMemoryCache objectForKey:url];
+    
+    __weak typeof(self) wSelf = self;
     if (!inMemoryImage) {
         [self.dbQueue inDatabase:^(FMDatabase *db) {
+            typeof(self) sSelf = wSelf;
             NSString *imageQuery = [NSString stringWithFormat:@"SELECT imageData FROM image WHERE imageUrl = \'%@\'", url];
             FMResultSet *imageSet = [db executeQuery:imageQuery];
             NSData *imageData = nil;
@@ -77,7 +80,7 @@ static NSString * const IMAGE_DATABASE_PATH = @"image.sqlite";
             
             UIImage *imageFromData = [UIImage imageWithData:imageData];
             if (imageFromData != nil) {
-                [self.inMemoryCache setObject:imageFromData forKey:url];
+                [sSelf.inMemoryCache setObject:imageFromData forKey:url];
             }
             
             completionBlock(imageFromData);

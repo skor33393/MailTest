@@ -66,7 +66,7 @@ static NSString * const DATABASE_NAME = @"mailtest.sqlite";
             [resultTweets addObject:tweet];
         }
         
-        completionBlock(resultTweets);
+        completionBlock([NSArray arrayWithArray:resultTweets]);
     }];
 }
 

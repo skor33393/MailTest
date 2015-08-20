@@ -30,21 +30,22 @@ static char kOperationQueueKey;
 - (void)setImageWithUrl:(NSString *)url placeholderImage:(UIImage *)placeholder {
     objc_setAssociatedObject(self, &kAssociatedObjectKey, url, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    __weak typeof(self)wself = self;
+    __weak typeof(self)wSelf = self;
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        wself.image = placeholder;
+        wSelf.image = placeholder;
     });
     
     [[self operationQueue] cancelAllOperations];
     
     NSOperation *operation = [[ImageDownloadManager sharedManager] getImageByUrl:url
                                     withCompletionBlock:^(UIImage *image) {
+                                        typeof(self) sSelf = wSelf;
                                         if (!operation.isCancelled) {
-                                            NSString *associatedUrl = objc_getAssociatedObject(wself, &kAssociatedObjectKey);
+                                            NSString *associatedUrl = objc_getAssociatedObject(sSelf, &kAssociatedObjectKey);
                                             if ([associatedUrl isEqualToString:url] && image) {
                                                 dispatch_async(dispatch_get_main_queue(), ^{
-                                                    wself.image = image;
+                                                    sSelf.image = image;
                                                 });
                                             }
                                         }
