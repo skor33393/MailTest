@@ -15,7 +15,7 @@
 		A32858FA1B80E66500751945 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A32858F91B80E66500751945 /* Images.xcassets */; };
 		A32858FD1B80E66500751945 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32858FB1B80E66500751945 /* LaunchScreen.xib */; };
 		A32859091B80E66500751945 /* MailTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A32859081B80E66500751945 /* MailTestTests.m */; };
-		A32859141B80E6FF00751945 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = A32859131B80E6FF00751945 /* Tweet.m */; };
+		A32859141B80E6FF00751945 /* Tweet.h in Sources */ = {isa = PBXBuildFile; fileRef = A32859131B80E6FF00751945 /* Tweet.h */; };
 		A328591B1B81072E00751945 /* TweetsSearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = A328591A1B81072E00751945 /* TweetsSearchService.m */; };
 		A328591E1B810A3700751945 /* TweetsSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A328591D1B810A3700751945 /* TweetsSerializer.m */; };
 		A32859231B83876C00751945 /* TweetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A32859221B83876C00751945 /* TweetTableViewCell.m */; };
@@ -53,8 +53,8 @@
 		A32859021B80E66500751945 /* MailTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MailTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32859071B80E66500751945 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A32859081B80E66500751945 /* MailTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MailTestTests.m; sourceTree = "<group>"; };
-		A32859121B80E6FF00751945 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tweet.h; path = Model/Tweet.h; sourceTree = "<group>"; };
-		A32859131B80E6FF00751945 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tweet.m; path = Model/Tweet.m; sourceTree = "<group>"; };
+		A32859121B80E6FF00751945 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		A32859131B80E6FF00751945 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
 		A32859191B81072E00751945 /* TweetsSearchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetsSearchService.h; sourceTree = "<group>"; };
 		A328591A1B81072E00751945 /* TweetsSearchService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetsSearchService.m; sourceTree = "<group>"; };
 		A328591C1B810A3700751945 /* TweetsSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetsSerializer.h; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 				A3E73F161B84A87600B28588 /* User.h */,
 				A3E73F171B84A87600B28588 /* User.m */,
 				A32859121B80E6FF00751945 /* Tweet.h */,
-				A32859131B80E6FF00751945 /* Tweet.m */,
+				A32859131B80E6FF00751945 /* Tweet.h */,
 				A328591C1B810A3700751945 /* TweetsSerializer.h */,
 				A328591D1B810A3700751945 /* TweetsSerializer.m */,
 			);
@@ -425,7 +425,7 @@
 				A3E73F201B85DC7400B28588 /* ImageDownloadManager.m in Sources */,
 				A32859231B83876C00751945 /* TweetTableViewCell.m in Sources */,
 				A32858EF1B80E66500751945 /* main.m in Sources */,
-				A32859141B80E6FF00751945 /* Tweet.m in Sources */,
+				A32859141B80E6FF00751945 /* Tweet.h in Sources */,
 				A3E73F281B86174F00B28588 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,7 +504,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -541,7 +541,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
